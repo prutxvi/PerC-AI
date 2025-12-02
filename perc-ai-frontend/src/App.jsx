@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Typewriter from "./Typewriter";
 
 function App() {
+  // Read API base from Vite env var. Accept either VITE_API_BASE or VITE_API_URL.
+  const API_BASE = import.meta.env.VITE_API_BASE || import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
   const [itemsInput, setItemsInput] = useState("A,B,C");
   const [r, setR] = useState(2);
   const [type, setType] = useState("perm");
@@ -23,7 +25,7 @@ function App() {
     setData(null);
     setShowExplanation(false);
     try {
-      const res = await fetch("http://127.0.0.1:8000/solve", {
+      const res = await fetch(`${API_BASE}/solve`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

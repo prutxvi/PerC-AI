@@ -14,9 +14,15 @@ load_dotenv()
 app = FastAPI()
 
 # Allow React (Vite) frontend to call this API
-origins = [
-    "http://localhost:5173",
-]
+# Read allowed frontend origins from the FRONTEND_ORIGINS env var (comma-separated)
+frontend_origins = os.getenv("FRONTEND_ORIGINS")
+if frontend_origins:
+    origins = [o.strip() for o in frontend_origins.split(",") if o.strip()]
+else:
+    origins = [
+        "http://localhost:5173",
+        "https://perc-ai.onrender.com",
+    ]
 
 app.add_middleware(
     CORSMiddleware,
