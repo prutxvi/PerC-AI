@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Node
+node_modules/
+dist/
+build/
+.npm/
+
+# Vite / React
+.perc-ai-frontend
+/perc-ai-frontend/node_modules
+/perc-ai-frontend/dist
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+*.env
+.env.local
+.env.*.local
+
+# Coverage
+htmlcov/
+.coverage
+coverage/
